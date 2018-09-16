@@ -25,8 +25,16 @@
             <td><?= h($product->model) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('TYPE') ?></th>
+            <td><?= h($product->TYPE) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($product->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Size') ?></th>
+            <td><?= $this->Number->format($product->size) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Price') ?></th>

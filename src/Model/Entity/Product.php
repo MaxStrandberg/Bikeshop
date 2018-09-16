@@ -9,6 +9,8 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property string $brand
  * @property string $model
+ * @property int $size
+ * @property string $TYPE
  * @property float $price
  */
 class Product extends Entity
@@ -26,6 +28,8 @@ class Product extends Entity
     protected $_accessible = [
         'brand' => true,
         'model' => true,
+        'size' => true,
+        'TYPE' => true,
         'price' => true
     ];
 }

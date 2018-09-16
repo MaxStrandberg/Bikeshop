@@ -18,6 +18,8 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('brand') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('model') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('size') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('TYPE') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('price') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -28,6 +30,8 @@
                 <td><?= $this->Number->format($product->id) ?></td>
                 <td><?= h($product->brand) ?></td>
                 <td><?= h($product->model) ?></td>
+                <td><?= $this->Number->format($product->size) ?></td>
+                <td><?= h($product->TYPE) ?></td>
                 <td><?= $this->Number->format($product->price) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $product->id]) ?>

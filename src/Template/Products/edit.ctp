@@ -23,6 +23,8 @@
         <?php
             echo $this->Form->control('brand');
             echo $this->Form->control('model');
+            echo $this->Form->control('size');
+            echo $this->Form->control('TYPE');
             echo $this->Form->control('price');
         ?>
     </fieldset>

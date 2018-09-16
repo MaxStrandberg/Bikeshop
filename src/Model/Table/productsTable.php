@@ -57,8 +57,16 @@ class ProductsTable extends Table
         $validator
             ->scalar('model')
             ->maxLength('model', 255)
-            ->requirePresence('model', 'create')
-            ->notEmpty('model');
+            ->allowEmpty('model');
+
+        $validator
+            ->allowEmpty('size');
+
+        $validator
+            ->scalar('TYPE')
+            ->maxLength('TYPE', 255)
+            ->requirePresence('TYPE', 'create')
+            ->notEmpty('TYPE');
 
         $validator
             ->numeric('price')
