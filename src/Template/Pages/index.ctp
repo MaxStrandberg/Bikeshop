@@ -8,8 +8,17 @@
 ?>
  <div class="container" style="max-width:600px">
     <h1 class="w3-large">Hae Pyörää merkillä</h1>
-    
-    <table cellpadding="10" cellspacing="10">
+
+      
+
+  
+
+<div class="products index large-9 large-8 columns content">
+    <?= $this->Form->create("", ['type'=>'get'])?>
+        <?= $this->Form->control('keyword', ['default'=>$this->request->query('keyword')]); ?>
+        <button>Etsi</button>
+    <?= $this->Form->end()?>
+    <table cellpadding="20" cellspacing="20">
         <thead>
             <tr>
                 
@@ -18,7 +27,7 @@
                 <th scope="col"><?= $this->Paginator->sort('Hinta') ?></th>
             </tr>
         </thead>
-
+    
         <tbody>
             <?php foreach ($products as $product): ?>
                 <tr>
@@ -27,14 +36,21 @@
                     <td><?= h($product->model) ?></td>
                     <td><?= h($product->price) ?>€</td>
                     <td class="actions">
-                    <?= $this->Html->link(__('Näytä tiedot'), ['action' => 'view', $product->id]) ?>
+                    <?= $this->Html->link(__('Tiedot'), ['action' => 'view', $product->id]) ?>
                 </td>
                 </tr>
            
             <?php endforeach; ?>
         </tbody>
+    </div>
     </table>
        
 </div>
+
+
+
+<script>
+ 
+</script>
 
 

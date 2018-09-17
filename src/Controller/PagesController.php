@@ -13,12 +13,22 @@ use App\Controller\AppController;
 
 class PagesController extends AppController
 {
+  
 
     public function index(){
+
+        $keyword = $this->request->query('keyword');
+        if(!empty($keyword)){
+
+            $result=$this->loadModel('products');
+            $data=$result->find('all', array( 'conditions' => array('brand LIKE ' => $keyword.'%')));
+            $this->set('products', $data);
+        }else{
+       
         $result=$this->loadModel('products');
         $data=$result->find();
         $this->set('products', $data);
-
+        }
     }
 
        /**
@@ -35,6 +45,18 @@ class PagesController extends AppController
         ]);
 
         $this->set('product', $product);
+    }
+
+    public function search()
+    {
+        $this->request->allowMethod('ajax');
+   
+        $keyword = $this->request->query('keyword');
+        $query = $this->Pages->find('all',[
+              'conditions' => ['brand LIKE'=>'%'.$keyword.'%']
+        ]);
+        $this->set('tags', $this->paginate($query));
+        $this->set('_serialize', ['tags']);
     }
     
 }
