@@ -4,7 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 
 /**
- * Products Controller
+ * Pages Controller
  *
  * @property \App\Model\Table\ProductsTable $Products
  *
@@ -14,7 +14,7 @@ use App\Controller\AppController;
 class PagesController extends AppController
 {
 
-    public function view(){
+    public function index(){
         $result=$this->loadModel('products');
         $data=$result->find();
         $this->set('products', $data);
@@ -28,9 +28,9 @@ class PagesController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function viewproduct($id = null)
+    public function view($id = null)
     {
-        $product = $this->Products->get($id, [
+        $product = $this->loadModel('products')->get($id, [
             'contain' => []
         ]);
 
